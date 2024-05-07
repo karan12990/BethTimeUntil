@@ -31,6 +31,7 @@ namespace TimeUntilWPF
             serviceCollection.AddSingleton<ILocalStorage, LocalStorage>();
             serviceCollection.AddSingleton<IFormFactor, FormFactor>();
             serviceCollection.AddSingleton<IPhotoManager, PhotoManager>();
+            serviceCollection.AddSingleton<IAppService, Root.Services.AppService>();
 
             Resources.Add("services", serviceCollection.BuildServiceProvider());
 

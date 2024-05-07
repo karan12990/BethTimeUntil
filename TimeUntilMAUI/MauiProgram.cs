@@ -1,6 +1,7 @@
 ﻿
 using Microsoft.Extensions.Logging;
 using Root.Interfaces;
+
 using TimeUntilMAUI.Services;
 
 namespace TimeUntilMAUI;
@@ -27,7 +28,8 @@ public static class MauiProgram
 		// Add device specific services used by RCL (Root)
 		builder.Services.AddSingleton<IFormFactor, FormFactor>();
         builder.Services.AddSingleton<ILocalStorage, LocalStorage>();
-        builder.Services.AddSingleton<IPhotoManager, PhotoManager>();        
+        builder.Services.AddSingleton<IPhotoManager, PhotoManager>();
+        builder.Services.AddSingleton<IAppService, Root.Services.AppService>();
 
         return builder.Build();
 	}
