@@ -1,39 +1,34 @@
-﻿@page "/home"
+﻿@page "/"
 
-@* <div class="container-fluid login-main">
-    <div class="row h-100">
-        <div class="col-8">
-            
-        </div>
-        <div class="col-4 bg-white login-page">
-            
+
+<div class="login-main row h-100 container-fluid p-0 m-0">
+    <div class="col-lg-7 bg-yellow d-none d-lg-block p-5 login-left-main">
+        <div>
+            <p class="login-left-head w-50">
+                Putting more care in pet care !!
+            </p>
         </div>
     </div>
-</div> *@
-
-<div class="login-main">
-    <div class="shadow login bg-white mx-4">
-        <div class="login-head">
-            <img src="/images/logo.png" alt="logo12" width="150px" />
-        </div>
-        <div class="text-center p-4">
-            <p class="fw-bold m-0 fs-3">Welcome Back</p>
-            <p class="m-0 fs-4">Enter your details to Login</p>
-        </div>
-        <form class="px-4">
-            <div class="form-group mb-4">
-                <label for="userName" class="mb-1">Username</label>
-                <input type="text" class="form-control p-3" id="userName" aria-describedby="userNameHelp" placeholder="Enter your username">
+    <div class="col-lg-5 d-flex justify-content-center align-items-center login-form-main">
+        <div class="login-form-box w-100 bg-white">
+            <div class="login-header">
+                <img src="images/logo.png" alt="">
             </div>
-            <div class="form-group mb-4">
-                <label for="pwd" class="mb-1">Password</label>
-                <input type="password" class="form-control p-3" id="pwd" placeholder="Enter your password">
+            <div class="login-title">
+                <h2>Welcome Back</h2>
+                <p>Enter your detials to Login</p>
             </div>
-
-            <button type="submit" class="btn w-100 mb-4 py-3 login-btn">Login</button>
-        </form>
-        <div class="d-flex justify-content-end">
-            <img src="/images/login-footer-img.png" alt="logo12" width="150px" />
+            <div class="login-form px-4 d-flex flex-column gap-4">
+                <div>
+                    <label for="userName" class="mb-2">Username</label>
+                    <input type="text" class="form-control form-control-lg" id="userName" placeholder="Enter your username">
+                </div>
+                <div >
+                    <label for="password" class="mb-2">Password</label>
+                    <input type="password" class="form-control form-control-lg" id="password" placeholder="Enter your password">
+                </div>
+                <button type="submit" class="btn w-100 mb-4 py-3 login-btn">Login</button>
+            </div>
         </div>
     </div>
 </div>

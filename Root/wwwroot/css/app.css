@@ -119,37 +119,84 @@ a, .btn-link {
 
 
 /*--------LOGIN PAGE-------*/
-/*.login-main {
-    background-color: #FFC126;
-    height: inherit;
-}
-
-.login-page{
-    border-radius: 10px;
-}*/
 
 .login-main {
-    height: 100%;
+    /*background-image: url(../images/login-bg-img.png);*/
+    /*background-repeat: no-repeat;*/
+    /*background-size: 100% 100%;*/
+    /*background-color: #FFC126;*/
+}
+
+.login-form-box {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 0 10px #ececec;
+    padding-bottom: 120px;
+    background-image: url(../images/login-footer-img.png);
+    background-position: bottom right;
+    background-repeat: no-repeat;
+}
+
+.login-form-main{
     background-image: url(../images/login-bg-img.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    display: flex;
-    align-items: center;
 }
 
-.login {
-    overflow: hidden;
-    border-radius: 10px;
-    width: 100%;
-}
-
-.login-head {
+.login-header {
     background-color: #FFC126;
-    padding: 2px 10px;
+    padding: 10px;
 }
 
-.login-btn {
+.login-title {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.login-btn{
     background-color: #FFC126;
+    color: #000000;
     font-weight: 600;
-    font-size: 20px;
+}
+
+.login-left-head{
+    font-size: 60px; 
+    margin-top: 100px; 
+    font-weight: 600; 
+    font-family: 'Arial', Helvetica, Arial, sans-serif;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.login-left-main{
+    background-image: url(../images/login-left-bg.png);
+    background-repeat: no-repeat;
+    background-size: 50% 50%;
+    background-position: bottom left;
+}
+
+@media screen and (min-width: 992px) {
+    .login-main {
+        background-color: #FFC126;
+    }
+
+    .login-header {
+        background-color: transparent;
+        text-align: center;
+    }
+
+    .login-header img {
+        width: 160px;
+    }
+
+    .login-form-main{
+        background: #ffffff;
+        border-radius: 10px;
+        padding: 0 40px;
+    }
+
+    .login-form-box {
+        box-shadow: none;
+        background-image: none;
+    }
 }
