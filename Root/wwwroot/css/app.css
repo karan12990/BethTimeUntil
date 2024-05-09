@@ -116,3 +116,40 @@ a, .btn-link {
     .loading-progress-text:after {
         content: var(--blazor-load-percentage-text, "Loading");
     }
+
+
+/*--------LOGIN PAGE-------*/
+/*.login-main {
+    background-color: #FFC126;
+    height: inherit;
+}
+
+.login-page{
+    border-radius: 10px;
+}*/
+
+.login-main {
+    height: 100%;
+    background-image: url(../images/login-bg-img.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    display: flex;
+    align-items: center;
+}
+
+.login {
+    overflow: hidden;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.login-head {
+    background-color: #FFC126;
+    padding: 2px 10px;
+}
+
+.login-btn {
+    background-color: #FFC126;
+    font-weight: 600;
+    font-size: 20px;
+}

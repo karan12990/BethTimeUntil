@@ -1,6 +1,39 @@
 ﻿@page "/home"
-<h3>Hello karan</h3>
 
-@code {
+@* <div class="container-fluid login-main">
+    <div class="row h-100">
+        <div class="col-8">
+            
+        </div>
+        <div class="col-4 bg-white login-page">
+            
+        </div>
+    </div>
+</div> *@
 
-}
+<div class="login-main">
+    <div class="shadow login bg-white mx-4">
+        <div class="login-head">
+            <img src="/images/logo.png" alt="logo12" width="150px" />
+        </div>
+        <div class="text-center p-4">
+            <p class="fw-bold m-0 fs-3">Welcome Back</p>
+            <p class="m-0 fs-4">Enter your details to Login</p>
+        </div>
+        <form class="px-4">
+            <div class="form-group mb-4">
+                <label for="userName" class="mb-1">Username</label>
+                <input type="text" class="form-control p-3" id="userName" aria-describedby="userNameHelp" placeholder="Enter your username">
+            </div>
+            <div class="form-group mb-4">
+                <label for="pwd" class="mb-1">Password</label>
+                <input type="password" class="form-control p-3" id="pwd" placeholder="Enter your password">
+            </div>
+
+            <button type="submit" class="btn w-100 mb-4 py-3 login-btn">Login</button>
+        </form>
+        <div class="d-flex justify-content-end">
+            <img src="/images/login-footer-img.png" alt="logo12" width="150px" />
+        </div>
+    </div>
+</div>
