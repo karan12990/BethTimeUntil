@@ -1,34 +1,57 @@
-﻿@page "/"
+﻿@page "/home"
+@inject NavigationManager NavigationManager
 
-
-<div class="login-main row h-100 container-fluid p-0 m-0">
-    <div class="col-lg-7 bg-yellow d-none d-lg-block p-5 login-left-main">
-        <div>
-            <p class="login-left-head w-50">
-                Putting more care in pet care !!
-            </p>
+<div class="d-flex flex-column h-100">
+    <div class="main-header d-flex justify-content-between align-items-center">
+        <div @onclick="BackToLogin">
+            <img src="images/logo.png" alt="">
+       </div>
+       <div class="d-flex align-items-center gap-3">
+           <div class="d-flex flex-column align-items-center">
+               <p class="mb-0">icon</p>
+               <p class="mb-0">Megha</p>
+           </div>
+            <div class="d-flex flex-column align-items-center">
+                <p class="mb-0">icon</p>
+                <p class="mb-0">Logout</p>
+            </div>
+       </div>
+    </div>
+    <div class="main-bg flex-grow-1">
+        <div class="d-flex flex-column align-items-center mt-5">
+            <div class="store-card-main">
+                <div class="mb-2">Go Back</div>
+                <div class="p-3 store-card">
+                    <p class="mb-3 fw-bolder">Select store</p>
+                    <div class="d-flex flex-column gap-3">
+                        <div class="d-flex justify-content-between align-items-center store-card-item p-2">
+                            <p>202 - Alexandria McEvoy</p>
+                            <p>arrow</p>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center store-card-item p-2">
+                            <p>202 - Alexandria McEvoy</p>
+                            <p>arrow</p>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center store-card-item p-2">
+                            <p>202 - Alexandria McEvoy</p>
+                            <p>arrow</p>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center store-card-item p-2">
+                            <p>202 - Alexandria McEvoy</p>
+                            <p>arrow</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="col-lg-5 d-flex justify-content-center align-items-center login-form-main">
-        <div class="login-form-box w-100 bg-white">
-            <div class="login-header">
-                <img src="images/logo.png" alt="">
-            </div>
-            <div class="login-title">
-                <h2>Welcome Back</h2>
-                <p>Enter your detials to Login</p>
-            </div>
-            <div class="login-form px-4 d-flex flex-column gap-4">
-                <div>
-                    <label for="userName" class="mb-2">Username</label>
-                    <input type="text" class="form-control form-control-lg" id="userName" placeholder="Enter your username">
-                </div>
-                <div >
-                    <label for="password" class="mb-2">Password</label>
-                    <input type="password" class="form-control form-control-lg" id="password" placeholder="Enter your password">
-                </div>
-                <button type="submit" class="btn w-100 mb-4 py-3 login-btn">Login</button>
-            </div>
-        </div>
+    <div class="main-footer d-flex align-items-center justify-content-center">
+        <img src="images/footer-img.png" alt="">
     </div>
 </div>
+@code {
+    private void BackToLogin()
+    {
+        NavigationManager.NavigateTo("/");
+    }
+}

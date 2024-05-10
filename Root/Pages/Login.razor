@@ -1,85 +1,42 @@
-﻿@page "/login"
-@using Root.Models
-@using Root.Services
-@using System.IdentityModel.Tokens.Jwt
-@using System.Security.Claims
-@using Newtonsoft.Json
-@inject IAppService AppService;
-@inject NavigationManager NavManager;
-<h3>Login</h3>
+﻿@page "/"
+@inject NavigationManager NavigationManager
 
-<EditForm Model="@loginModel" OnValidSubmit="Submit">
-    <DataAnnotationsValidator />
-    <div class="form-group">
-        <label>Email address</label>
-        <input type="email" @bind-value="loginModel.UserName" class="form-control" placeholder="Enter email">
-        <ValidationMessage For="@(()=> loginModel.UserName)" />
-    </div>
-    <div class="mt-2 form-group">
-        <label>Password</label>
-        <input type="password" @bind-value="loginModel.Password" class="form-control" placeholder="Password">
-        <ValidationMessage For="@(()=> loginModel.Password)" />
-    </div>
 
-    <div class="mt-2 text-end">
-        <NavLink class="nav-link" href="registration">
-            <span>Click here to create new account?</span>
-        </NavLink>
+<div class="login-main row h-100 container-fluid p-0 m-0">
+    <div class="col-lg-7 bg-yellow d-none d-lg-block p-5 login-left-main">
+        <div>
+            <p class="login-left-head w-50">
+                Putting more care in pet care !!
+            </p>
+        </div>
     </div>
-
-    <div class="text-center mt-2">
-        <button class="btn btn-primary" type="submit">
-            <span class="@_spinnerClass" role="status" aria-hidden="true"></span>
-            SignIn
-        </button>
+    <div class="col-lg-5 d-flex justify-content-center align-items-center login-form-main">
+        <div class="login-form-box w-100 bg-white">
+            <div class="login-header">
+                <img src="images/logo.png" alt="">
+            </div>
+            <div class="login-title">
+                <h2>Welcome Back</h2>
+                <p>Enter your detials to Login</p>
+            </div>
+            <div class="login-form px-4 d-flex flex-column gap-4">
+                <div>
+                    <label for="userName" class="mb-2">Username</label>
+                    <input type="text" class="form-control form-control-lg" id="userName" placeholder="Enter your username">
+                </div>
+                <div >
+                    <label for="password" class="mb-2">Password</label>
+                    <input type="password" class="form-control form-control-lg" id="password" placeholder="Enter your password">
+                </div>
+                <button type="submit" class="btn w-100 mb-4 py-3 login-btn" @onclick="HandleLogin">Login</button>
+            </div>
+        </div>
     </div>
-</EditForm>
+</div>
 
 @code {
-    LoginModel loginModel = new();
-
-    private string _spinnerClass = "";
-    private async void Submit()
+    private void HandleLogin()
     {
-
-        _spinnerClass = "spinner-border spinner-border-sm";
-        var response = await AppService.AuthenticateUser(loginModel);
-        if (response.IsSuccess)
-        {
-            var tokenResponse = JsonConvert.DeserializeObject<AuthenticateRequestAndResponse>(response.Content.ToString());
-
-            var handler = new JwtSecurityTokenHandler();
-            var jsontoken = handler.ReadToken(tokenResponse.AccessToken) as JwtSecurityToken;
-
-            string userID = jsontoken.Claims.FirstOrDefault(f => f.Type == JwtRegisteredClaimNames.NameId).Value;
-            string name = jsontoken.Claims.FirstOrDefault(f => f.Type == JwtRegisteredClaimNames.Name).Value;
-            string userAvatar = jsontoken.Claims.FirstOrDefault(f => f.Type == "UserAvatar").Value;
-
-            string email = loginModel.UserName;
-
-            var userBasicDetail = new UserBasicDetail
-                {
-                    Email = email,
-                    Name = name,
-                    AccessToken = tokenResponse.AccessToken,
-                    RefreshToken = tokenResponse.RefreshToken,
-                    // UserAvatar = !string.IsNullOrWhiteSpace(userAvatar) ? $"{Setting.BaseUrl}/{userAvatar}" : "",
-                    UserID = userID
-                };
-
-            string userBasicInfoStr = JsonConvert.SerializeObject(userBasicDetail);
-            // await SecureStorage.SetAsync(nameof(Setting.UserBasicDetail), userBasicInfoStr);
-            // Setting.UserBasicDetail = userBasicDetail;
-
-            NavManager.NavigateTo("/home");
-        }
-        else
-        {
-            // await App.Current.MainPage.DisplayAlert("Oops", "Invalid username or password", "OK");
-        }
-
-        _spinnerClass = "";
-        this.StateHasChanged();
+        NavigationManager.NavigateTo("/home");
     }
-
 }

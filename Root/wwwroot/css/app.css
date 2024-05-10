@@ -1,7 +1,13 @@
 ﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
+@font-face {
+    font-family: "Gilmer-Light";
+    src: url('../css/open-iconic/font/fonts/gilmer-light.otf') format('truetype');
+}
+
 html, body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    /*font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;*/
+    font-family: "Gilmer-Light";
 }
 
 h1:focus {
@@ -117,6 +123,9 @@ a, .btn-link {
         content: var(--blazor-load-percentage-text, "Loading");
     }
 
+p {
+    margin: 0;
+}
 
 /*--------LOGIN PAGE-------*/
 
@@ -163,7 +172,7 @@ a, .btn-link {
     font-size: 60px; 
     margin-top: 100px; 
     font-weight: 600; 
-    font-family: 'Arial', Helvetica, Arial, sans-serif;
+    /*font-family: 'Arial', Helvetica, Arial, sans-serif;*/
     color: #ffffff;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
@@ -174,6 +183,38 @@ a, .btn-link {
     background-size: 50% 50%;
     background-position: bottom left;
 }
+
+/*--------HOME PAGE-------*/
+
+.main-header {
+    background-color: #FFC126;
+    padding: 10px 15px;
+}
+
+.main-bg {
+    background-image: url(../images/home-bg-left.png), url(../images/home-bg-right.png);
+    background-repeat: no-repeat, no-repeat;
+    background-size: 15% 50%, 10% 50%;
+    background-position: bottom left, top right;
+}
+
+.main-footer {
+    background-color: #FFC126;
+}
+
+
+.store-card-main .store-card {
+    width: 500px;
+    max-width: 500px;
+    box-shadow: 0 0 10px #ececec;
+    border-radius: 10px;
+}
+
+    .store-card-main .store-card .store-card-item {
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+    }
+
 
 @media screen and (min-width: 992px) {
     .login-main {
@@ -198,5 +239,26 @@ a, .btn-link {
     .login-form-box {
         box-shadow: none;
         background-image: none;
+    }
+
+}
+
+@media screen and (max-width: 992px) {
+    .main-footer {
+        padding: 10px 0;
+    }
+
+    .main-footer img {
+        width: 400px;
+    }
+
+    .store-card-main .store-card {
+        max-width: 400px;
+        box-shadow: 0 0 10px #ececec;
+        border-radius: 10px;
+    }
+
+    .main-bg {
+        background: none;
     }
 }
