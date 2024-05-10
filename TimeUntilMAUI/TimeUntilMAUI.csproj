@@ -14,10 +14,10 @@
         <EnableDefaultCssItems>false</EnableDefaultCssItems>
       
         <!-- Display name -->
-        <ApplicationTitle>TimeUntil</ApplicationTitle>
+        <ApplicationTitle>Petbarn</ApplicationTitle>
 
         <!-- App Identifier -->
-        <ApplicationId>com.bethmassi.timeuntil</ApplicationId>
+        <ApplicationId>com.bethmassi.petbarn</ApplicationId>
         <ApplicationIdGuid>0B2DFB84-21AD-4389-B769-627FC10AED61</ApplicationIdGuid>
 
         <!-- Versions -->
