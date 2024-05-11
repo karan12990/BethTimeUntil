@@ -258,7 +258,8 @@ input::placeholder {
 
 .store-card-main .store-card {
     /*width: 500px;*/
-    min-width: 500px;
+    min-width: 524px;
+    max-height: 630px;
     box-shadow: 0 0 10px #ececec;
     border-radius: 10px;
 }
@@ -276,6 +277,10 @@ input::placeholder {
         cursor: pointer;
     }
 
+.store-card-item img{
+    cursor: pointer;
+}
+
 @media screen and (max-width: 992px) {
     .main-footer {
         padding: 10px 0;
@@ -283,9 +288,61 @@ input::placeholder {
 
     .store-card-main .store-card {
         min-width: 350px;
+        max-width: 350px;
+        max-height: 580px;
     }
 
     .main-bg {
         background: none;
     }
+}
+
+/*--------STORE MANAGEMENT PAGE-------*/
+
+.store-menu-list {
+    margin-bottom: 10px;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+.store-menu {
+    /*box-shadow: #00000017 0px 2px 1px, #00000017 0px 4px 2px, #00000017 0px 8px 4px;*/
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+    height: 170px;
+    overflow: hidden;
+}
+
+    .store-menu p {
+        font-size: 20px;
+        word-break: break-word;
+    }
+
+@media screen and (max-width: 992px) {
+    .store-menu p {
+        font-size: 19px;
+    }
+}
+
+/*--------CUSTOM SCROLLBAR-------*/
+
+@media screen and (min-width: 992px) {
+
+    ::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #888;
+    }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
 }

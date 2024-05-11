@@ -1,0 +1,122 @@
+﻿@page "/store-management"
+@inject NavigationManager NavigationManager
+
+<div class="d-flex flex-column h-100">
+    <Header />
+    <div class="main-bg flex-grow-1">
+        <div class="d-flex flex-column align-items-center mt-5">
+            <div class="store-card-main">
+                <div class="mb-2 back-div d-flex align-items-center gap-3" @onclick="BackToHome">
+                    <img src="/_content/Root/icons/left_arrow.png" alt="" class="ms-1"><span>Go Back</span>
+                </div>
+                <div class="px-3 py-4 store-card overflow-auto">
+                    <p class="mb-4 fw-bold" style="font-size:20px;">204 Chatwood</p>
+                    <div class="row">
+                        <div class="col-6 store-menu-list">
+                            <div class="store-menu d-flex flex-column justify-content-between gap-4 p-4">
+                                <div>
+                                    <img src="/_content/Root/icons/store-menu-IC.png" alt="store-menu"/>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between gap-2">
+                                    <p>Item check</p>
+                                    <img src="/_content/Root/icons/right_arrow.png" alt="" class="ms-1">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 store-menu-list">
+                            <div class="store-menu d-flex flex-column justify-content-between gap-4 p-4">
+                                <div>
+                                    <img src="/_content/Root/icons/store-menu-ST.png" alt="store-menu" />
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between gap-2">
+                                    <p>Stock Take</p>
+                                    <img src="/_content/Root/icons/right_arrow.png" alt="" class="ms-1">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 store-menu-list">
+                            <div class="store-menu d-flex flex-column justify-content-between justify-content-between gap-4 p-4">
+                                <div>
+                                    <img src="/_content/Root/icons/store-menu-Transfer.png" alt="store-menu" />
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between gap-2">
+                                    <p>Transfers</p>
+                                    <img src="/_content/Root/icons/right_arrow.png" alt="" class="ms-1">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 store-menu-list">
+                            <div class="store-menu d-flex flex-column justify-content-between p-4">
+                                <div>
+                                    <img src="/_content/Root/icons/store-menu-DR.png" alt="store-menu" />
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between gap-2">
+                                    <p>Daily Routines</p>
+                                    <img src="/_content/Root/icons/right_arrow.png" alt="" class="ms-1">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 store-menu-list">
+                            <div class="store-menu d-flex flex-column justify-content-between p-4">
+                                <div>
+                                    <img src="/_content/Root/icons/store-menu-Promos.png" alt="store-menu" />
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between gap-2">
+                                    <p>Promos</p>
+                                    <img src="/_content/Root/icons/right_arrow.png" alt="" class="ms-1">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 store-menu-list">
+                            <div class="store-menu d-flex flex-column justify-content-between p-4">
+                                <div>
+                                    <img src="/_content/Root/icons/store-menu-Receive.png" alt="store-menu" />
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between gap-2">
+                                    <p>Receive</p>
+                                    <img src="/_content/Root/icons/right_arrow.png" alt="" class="ms-1">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 store-menu-list">
+                            <div class="store-menu d-flex flex-column justify-content-between p-4">
+                                <div>
+                                    <img src="/_content/Root/icons/store-menu-PO.png" alt="store-menu" />
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between gap-2">
+                                    <p>Purchase Order</p>
+                                    <img src="/_content/Root/icons/right_arrow.png" alt="" class="ms-1">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 store-menu-list">
+                            <div class="store-menu d-flex flex-column justify-content-between p-4">
+                                <div>
+                                    <img src="/_content/Root/icons/store-menu-AMD.png" alt="store-menu" />
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between gap-2">
+                                    <p>Automated Markes Down</p>
+                                    <img src="/_content/Root/icons/right_arrow.png" alt="" class="ms-1">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <Footer />
+</div>
+
+@code {
+    private void BackToHome()
+    {
+        NavigationManager.NavigateTo("/home");
+    }
+}

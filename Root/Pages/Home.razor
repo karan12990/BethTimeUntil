@@ -14,11 +14,11 @@
                     <div class="d-flex flex-column gap-3">
                         <div class="d-flex justify-content-between align-items-center store-card-item p-3">
                             <p>202 - Alexandria McEvoy</p>
-                            <p><img src="/_content/Root/icons/right_arrow.png" alt=""></p>
+                            <p @onclick="HandleStore"><img src="/_content/Root/icons/right_arrow.png" alt=""></p>
                         </div>
                         <div class="d-flex justify-content-between align-items-center store-card-item p-3">
                             <p>204 - Chatswood</p>
-                            <p><img src="/_content/Root/icons/right_arrow.png" alt=""></p>
+                            <p @onclick="HandleStore"><img src="/_content/Root/icons/right_arrow.png" alt=""></p>
                         </div>
                         <div class="d-flex justify-content-between align-items-center store-card-item p-3">
                             <p>206 - Penrith Coreen Ave</p>
@@ -43,5 +43,10 @@
     private void BackToLogin()
     {
         NavigationManager.NavigateTo("/");
+    }
+
+    private void HandleStore()
+    {
+        NavigationManager.NavigateTo("/store-management");
     }
 }
