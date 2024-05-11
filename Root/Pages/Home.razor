@@ -2,14 +2,14 @@
 @inject NavigationManager NavigationManager
 
 <div class="d-flex flex-column h-100">
-    <Header></Header>
+    <Header />
     <div class="main-bg flex-grow-1">
         <div class="d-flex flex-column align-items-center mt-5">
             <div class="store-card-main">
                 <div class="mb-2 back-div d-flex align-items-center gap-3" @onclick="BackToLogin">
                     <img src="/_content/Root/icons/left_arrow.png" alt="" class="ms-1"><span>Go Back</span>
                 </div>
-                <div class="px-4 py-5 store-card" >
+                <div class="px-4 py-4 store-card" >
                     <p class="mb-4 fw-bold" style="font-size:20px;">Select store</p>
                     <div class="d-flex flex-column gap-3">
                         <div class="d-flex justify-content-between align-items-center store-card-item p-3">
@@ -37,14 +37,7 @@
             </div>
         </div>
     </div>
-    <div class="main-footer d-flex align-items-center justify-content-center">
-        <div class="d-lg-block d-none">
-            <img src="/_content/Root/images/footer-img.png" alt="">
-        </div>
-        <div class="d-block d-lg-none">
-            <img src="/_content/Root/images/m-footer-img.png" alt="">
-        </div>
-    </div>
+    <Footer />
 </div>
 @code {
     private void BackToLogin()
