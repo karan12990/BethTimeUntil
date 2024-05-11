@@ -129,6 +129,14 @@ p {
 
 /*--------LOGIN PAGE-------*/
 
+input[type='text'], input[type='email'], input[type='password'] {
+    font-size: 16px;
+}
+
+input::placeholder {
+    font-size: 16px;
+}
+
 .login-main {
     /*background-image: url(../images/login-bg-img.png);*/
     /*background-repeat: no-repeat;*/
@@ -139,8 +147,8 @@ p {
 .login-form-box {
     border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 0 10px #ececec;
-    padding-bottom: 120px;
+    box-shadow: 0 0 15px #ececec;
+    padding-bottom: 100px;
     background-image: url(../images/login-footer-img.png);
     background-position: bottom right;
     background-repeat: no-repeat;
@@ -154,27 +162,42 @@ p {
 
 .login-header {
     background-color: #FFC126;
-    padding: 10px;
+    padding: 4px 12px;
 }
 
 .login-title {
     text-align: center;
-    padding: 10px 0;
+    padding: 24px 0;
 }
 
-.login-btn{
+    .login-title .login-title-1 {
+        font-weight: 600;
+        font-size: 20px;
+    }
+
+    .login-title .login-title-2 {
+    }
+
+.login-form label{
+    font-size: 15px;
+}
+
+.login-btn {
     background-color: #FFC126;
     color: #000000;
     font-weight: 600;
 }
 
-.login-left-head{
-    font-size: 60px; 
-    margin-top: 100px; 
-    font-weight: 600; 
-    /*font-family: 'Arial', Helvetica, Arial, sans-serif;*/
+.login-left-head {
+    font-size: 60px;
+    margin-top: 100px;
+    font-weight: 600;
+    /*font-family: 'Arial', sans-serif;*/
     color: #ffffff;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    /*-webkit-text-stroke: 3px #ffffff;*/
+    letter-spacing: 2px;
+    line-height: 1.1;
 }
 
 .login-left-main{
@@ -184,11 +207,42 @@ p {
     background-position: bottom left;
 }
 
+@media screen and (min-width: 992px) {
+    .login-main {
+        background-color: #FFC126;
+    }
+
+    .login-title {
+        padding: 34px 0;
+    }
+
+    .login-header {
+        background-color: transparent;
+        text-align: center;
+    }
+
+        .login-header img {
+            width: 160px;
+        }
+
+    .login-form-main {
+        background: #ffffff;
+        border-radius: 10px;
+        padding: 0 40px;
+    }
+
+    .login-form-box {
+        box-shadow: none;
+        background-image: none;
+    }
+}
+
+
 /*--------HOME PAGE-------*/
 
 .main-header {
     background-color: #FFC126;
-    padding: 10px 15px;
+    padding: 35px 20px 15px;
 }
 
 .main-bg {
@@ -202,61 +256,33 @@ p {
     background-color: #FFC126;
 }
 
-
 .store-card-main .store-card {
-    width: 500px;
-    max-width: 500px;
+    /*width: 500px;*/
+    min-width: 500px;
     box-shadow: 0 0 10px #ececec;
     border-radius: 10px;
 }
 
     .store-card-main .store-card .store-card-item {
         border: 1px solid #e0e0e0;
-        border-radius: 5px;
+        border-radius: 8px;
         font-size:18px;
     }
 
-
-@media screen and (min-width: 992px) {
-    .login-main {
-        background-color: #FFC126;
+    .store-card-main .back-div {
+        color: #007FC3;
+        font-weight: 600;
+        font-size: 18px;
+        cursor: pointer;
     }
-
-    .login-header {
-        background-color: transparent;
-        text-align: center;
-    }
-
-    .login-header img {
-        width: 160px;
-    }
-
-    .login-form-main{
-        background: #ffffff;
-        border-radius: 10px;
-        padding: 0 40px;
-    }
-
-    .login-form-box {
-        box-shadow: none;
-        background-image: none;
-    }
-
-}
 
 @media screen and (max-width: 992px) {
     .main-footer {
         padding: 10px 0;
     }
 
-    .main-footer img {
-        width: 400px;
-    }
-
     .store-card-main .store-card {
-        max-width: 400px;
-        box-shadow: 0 0 10px #ececec;
-        border-radius: 10px;
+        min-width: 350px;
     }
 
     .main-bg {
