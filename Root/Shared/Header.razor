@@ -9,7 +9,7 @@
             <p class="mb-0"><img src="/_content/Root/icons/profile_Icon.png" alt=""></p>
             <p class="mb-0 fs-5 fw-bold">Megha</p>
         </div>
-        <div class="d-flex flex-column align-items-center gap-2">
+        <div class="d-flex flex-column align-items-center gap-2 cursor-pointer" @onclick="HandleLogout">
             <p class="mb-0"><img src="/_content/Root/icons/logout_Icon.png" alt=""></p>
             <p class="mb-0 fs-5 fw-bold">Logout</p>
         </div>
@@ -18,6 +18,11 @@
 
 @code {
     private void BackToLogin()
+    {
+        NavigationManager.NavigateTo("/");
+    }
+
+    private void HandleLogout()
     {
         NavigationManager.NavigateTo("/");
     }
