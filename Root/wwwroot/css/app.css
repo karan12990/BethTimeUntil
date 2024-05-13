@@ -242,7 +242,10 @@ input::placeholder {
 
 .main-header {
     background-color: #FFC126;
-    padding: 35px 20px 15px;
+    padding: 20px 15px;
+    position: fixed;
+    top: 0;
+    width: 100%;
 }
 
 .main-bg {
@@ -250,16 +253,21 @@ input::placeholder {
     background-repeat: no-repeat, no-repeat;
     background-size: 15% 50%, 10% 50%;
     background-position: bottom left, top right;
+    padding-top: 100px;
+    padding-bottom: 100px;
 }
 
 .main-footer {
     background-color: #FFC126;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 .store-card-main .store-card {
-    /*width: 500px;*/
     min-width: 524px;
-    max-height: 630px;
+    max-width: 524px;
+    /*max-height: 68vh;*/
     box-shadow: 0 0 10px #ececec;
     border-radius: 10px;
 }
@@ -282,14 +290,18 @@ input::placeholder {
 }
 
 @media screen and (max-width: 992px) {
+    .main-header {
+        padding: 35px 20px 15px;
+    }
+
     .main-footer {
-        padding: 10px 0;
+        /*padding: 10px 0;*/
     }
 
     .store-card-main .store-card {
         min-width: 350px;
         max-width: 350px;
-        max-height: 580px;
+        /*max-height: 68vh;*/
     }
 
     .main-bg {
@@ -310,6 +322,10 @@ input::placeholder {
     box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
     height: 170px;
     overflow: hidden;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
 }
 
     .store-menu p {
