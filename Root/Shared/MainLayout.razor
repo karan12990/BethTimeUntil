@@ -1,12 +1,14 @@
 ﻿@inherits LayoutComponentBase
 
 <div class="page" style="height: 100vh">
-    <Header />
     <main>
-        <article class="" style="height: 100%">
-            @Body
+        <Header />
+        <article class="main-bg">
+            <div class="h-100">
+                @Body
+            </div>
         </article>
+        <Footer />
     </main>
-    <Footer />
 </div>
 

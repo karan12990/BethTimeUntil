@@ -1,0 +1,134 @@
+﻿@page "/item-description"
+@inject NavigationManager NavigationManager
+
+<style>
+    table {
+        width: 100%;
+        font-size: 13px;
+        table-layout: fixed;
+    }
+
+    th {
+        background-color: #ececec
+    }
+
+    th, td {
+        border: 1px solid #999;
+        padding: 8px;
+        word-break: break-word;
+    }
+
+</style>
+
+<div class="d-flex justify-content-center">
+    <div class="store-card-main">
+        <div class="mb-2 back-div d-flex align-items-center gap-3" @onclick="BackToStoreManagement">
+            <img src="/_content/Root/icons/left_arrow.png" alt="" class="ms-1"><span>Menu</span>
+        </div>
+        <div class="px-3 py-4 store-card">
+            <p class="mb-4 fw-bold" style="font-size:20px;">204 Chatwood</p>
+            <div class="d-flex align-items-center gap-lg-3 gap-2 mb-4">
+                <div class="flex-fill">
+                    <button class="btn btn-style">
+                        <img src="/_content/Root/icons/history.png" alt="" width="16px">
+                        <span>History</span>
+                    </button>
+                </div>
+                <div class="flex-fill">
+                    <button class="btn btn-style">
+                        <img src="/_content/Root/icons/edit.png" alt="" width="16px">
+                        <span>Edit</span>
+                    </button>
+                </div>
+                <div class="flex-fill">
+                    <button class="btn btn-style">
+                        <img src="/_content/Root/icons/scan.png" alt="" width="16px">
+                        <span>Scan</span>
+                    </button>
+                </div>
+            </div>
+            <div class="d-flex align-items-center gap-3 mb-4">
+                <label for="myInput">Item</label>
+                <div class="autocomplete">
+                    <input id="myInput" type="text" name="myCountry">
+                    <img src="/_content/Root/icons/x-circle.png" alt="" width="16px" class="search-icon">
+                </div>
+            </div>
+            <div>
+                <table>
+                    <tr>
+                        <th>Description</th>
+                        <th colspan="3">AI COMET RED WHITE 5 cm</th>
+                    </tr>
+                    <tr>
+                        <td>Barcord</td>
+                        <td>9876543210</td>
+                        <td>Vendor</td>
+                        <td>AGUARIUM INDUSTIES PVT LTD</td>
+                    </tr>
+                    <tr>
+                        <td>Distributor</td>
+                        <td>AGUARIUM INDUSTIES PVT LTD</td>
+                        <td>UOM</td>
+                        <td>EA</td>
+                    </tr>
+                    <tr>
+                        <td>Item No</td>
+                        <td>96602</td>
+                        <td>MPL</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>SOH</td>
+                        <td>147+0=147</td>
+                        <td>Facings</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>Pack Size</td>
+                        <td>10</td>
+                        <td>Shelf Cap</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>Price</td>
+                        <td>55.99</td>
+                        <td>SOO</td>
+                        <td>1310</td>
+                    </tr>
+                    <tr>
+                        <td>Delivery Date</td>
+                        <td>03/10/2023</td>
+                        <td>Last Delivery QTY</td>
+                        <td>100</td>
+                    </tr>
+                    <tr>
+                        <td>Last Order Date</td>
+                        <td>24/10/2023</td>
+                        <td>Last Delivery Date</td>
+                        <td>03/04/2024</td>
+                    </tr>
+                    <tr>
+                        <td>Next Order Date</td>
+                        <td></td>
+                        <td>OOS Reason</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Standard Cost</td>
+                        <td>1.94</td>
+                        <td>Status</td>
+                        <td>Active</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private void BackToStoreManagement()
+    {
+        NavigationManager.NavigateTo("/store-management");
+    }
+}
