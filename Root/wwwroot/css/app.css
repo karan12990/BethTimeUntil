@@ -128,6 +128,22 @@ a, .btn-link {
 
 /*--------COMMON-------*/
 
+.modal-header .btn-close {
+    width: 15px;
+    height: 15px;
+    font-size: 12px;
+    padding: 0 10px;
+}
+
+.modal-content{
+    border-radius: 1rem;
+    border: none;
+}
+
+.modal-dialog-centered {
+    justify-content: center;
+}
+
 p {
     margin: 0;
 }
@@ -140,6 +156,8 @@ p {
     background-color: var(--main-yellow-color);
     color: #000000;
     font-weight: 600;
+    padding-top: 12px;
+    padding-bottom: 12px;
 }
 
 .btn-style {
@@ -150,6 +168,29 @@ p {
     width: 100%;
     background-color: #f8f9fa;
     font-size: 18px;
+}
+
+table {
+    width: 100%;
+    font-size: 13px;
+    table-layout: fixed;
+    border-radius: 10px !important;
+}
+
+thead {
+    background-color: #ececec
+}
+
+th, td {
+    border: 1px solid #999;
+    padding: 8px;
+    word-break: break-word;
+}
+
+@media screen and (max-width: 992px) {
+    .modal-content {
+        width: 80%;
+    }
 }
 
 /*--------LOGIN PAGE-------*/
@@ -383,11 +424,6 @@ input::placeholder {
 
 /*--------STORE ITEM DESCRIPTION PAGE-------*/
 
-table, th, td {
-    border: 1px solid #999;
-    padding: 20px;
-}  
-
 /*--------CUSTOM SCROLLBAR-------*/
 @media screen and (min-width: 992px) {
     ::-webkit-scrollbar {
@@ -420,7 +456,7 @@ table, th, td {
 
 input {
     border: 1px solid #e0e0e0;
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 8px;
     font-size: 16px;
     width: 100%
@@ -461,3 +497,26 @@ input {
     background-color: DodgerBlue !important;
     color: #ffffff;
 }
+
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #777;
+    font-size: 14px;
+}
+
+    .divider::before,
+    .divider::after {
+        content: "";
+        flex: 1;
+        border-bottom: 2px solid #ccc;
+    }
+
+    .divider::before {
+        margin-right: 1rem;
+    }
+
+    .divider::after {
+        margin-left: 1rem;
+    }

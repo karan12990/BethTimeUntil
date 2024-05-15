@@ -1,0 +1,164 @@
+﻿@page "/item-edit"
+@inject NavigationManager NavigationManager
+
+<div class="d-flex justify-content-center">
+    <div class="store-card-main">
+        <div class="mb-2 back-div d-flex align-items-center gap-3" @onclick="BackToStoreItemCheck">
+            <img src="/_content/Root/icons/left_arrow.png" alt="" class="ms-1"><span>Go Back</span>
+        </div>
+        <div class="px-3 py-4 store-card">
+            <p class="mb-4 fw-bold" style="font-size:20px;">204 Chatwood</p>
+            <div class="mb-4">
+                <button class="btn btn-light d-flex align-items-center gap-2" @onclick='(() => NavigationManager.NavigateTo("/store-management"))'>
+                    <img src="/_content/Root/icons/menu.png" alt="menu">
+                    <span>Menu</span>
+                </button>
+            </div>
+            <form class ="">
+                <div class="row mb-2">
+                    <div class="col-4 my-auto lh-sm">Inv Adj</div>
+                    <div class="col-8">
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-4 my-auto lh-sm">UOM</div>
+                    <div class="col-8">
+                        <input type="text" class="form-control" data-bs-toggle="modal" data-bs-target="#UOMModal" />
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-4 my-auto lh-sm">Reason Code</div>
+                    <div class="col-8">
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-4 my-auto lh-sm">Claim Po</div>
+                    <div class="col-8">
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-4 my-auto lh-sm">Item quantity</div>
+                    <div class="col-8">
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-4 my-auto lh-sm">Facings</div>
+                    <div class="col-8">
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-lg-4 my-auto"></div>
+                    <div class="col-lg-8">
+                        <button class="btn btn-yellow w-100">Save</button>
+                    </div>
+                </div>
+                <div class="divider mb-3">
+                    <span>OR</span>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-4 my-auto lh-sm">Available SOH</div>
+                    <div class="col-8">
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-4 my-auto lh-sm">Item quantity</div>
+                    <div class="col-8">
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-lg-4 my-auto"></div>
+                    <div class="col-lg-8">
+                        <button class="btn btn-yellow w-100">Save</button>
+                    </div>
+                </div>
+            </form>
+            <div>
+                <table class="rounded-3">
+                    <tbody>
+                        <tr>
+                            <td>Item No</td>
+                            <td>96602</td>
+                            <td>MPL</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>Pack Size</td>
+                            <td>10</td>
+                            <td>Shell Cap</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>Description</td>
+                            <td colspan="3">AI COMET RED WHITE 5 cm</td>
+                        </tr>
+                        <tr>
+                            <td>Barcord</td>
+                            <td>966025489995656</td>
+                            <td>UOM</td>
+                            <td>EA</td>
+                        </tr>
+                        <tr>
+                            <td>Supplier</td>
+                            <td colspan="3">AGUARIUM INDUSTIES PVT LTD</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- UOM Modal -->
+            <div class="modal fade" id="UOMModal" tabindex="-1" aria-labelledby="UOMModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-6 fw-bold" id="UOMModalLabel">Add Members</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Description</th>
+                                        <th>code</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>EACH</td>
+                                        <td>EA</td>
+                                    </tr>
+                                    <tr>
+                                        <td>RECH</td>
+                                        <td>RA</td>
+                                    </tr>
+                                    <tr>
+                                        <td>FIRM</td>
+                                        <td>FI</td>
+                                    </tr>
+                                    <tr>
+                                        <td>FORM</td>
+                                        <td>EM</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    private void BackToStoreItemCheck()
+    {
+        NavigationManager.NavigateTo("/store-item-check");
+    }
+}

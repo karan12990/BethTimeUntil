@@ -1,0 +1,81 @@
+﻿@page "/item-history"
+@inject NavigationManager NavigationManager
+
+<div class="d-flex justify-content-center">
+    <div class="store-card-main">
+        <div class="mb-2 back-div d-flex align-items-center gap-3" @onclick="BackToStoreItemCheck">
+            <img src="/_content/Root/icons/left_arrow.png" alt="" class="ms-1"><span>Go Back</span>
+        </div>
+        <div class="px-3 py-4 store-card">
+            <p class="mb-4 fw-bold" style="font-size:20px;">204 Chatwood</p>
+            <div class="d-flex align-items-center gap-lg-3 gap-2 mb-4">
+                <div class="flex-fill">
+                    <button class="btn btn-style">
+                        <img src="/_content/Root/icons/history.png" alt="" width="16px">
+                        <span>History</span>
+                    </button>
+                </div>
+                <div class="flex-fill">
+                    <button class="btn btn-style" @onclick='(() => NavigationManager.NavigateTo("/item-edit"))'>
+                        <img src="/_content/Root/icons/edit.png" alt="" width="16px">
+                        <span>Edit</span>
+                    </button>
+                </div>
+                <div class="flex-fill">
+                    <button class="btn btn-style">
+                        <img src="/_content/Root/icons/scan.png" alt="" width="16px">
+                        <span>Scan</span>
+                    </button>
+                </div>
+            </div>
+            <div class="d-flex align-items-center gap-3 mb-4">
+                <label for="myInput">Item</label>
+                <div class="autocomplete">
+                    <input id="myInput" type="text" name="myCountry">
+                    <img src="/_content/Root/icons/x-circle.png" alt="" width="16px" class="search-icon">
+                </div>
+            </div>
+            <div>
+                <p class="mb-3">Item Check History</p>
+                <table class="mb-3">
+                    <thead>
+                        <tr>
+                            <th>Barcord</th>
+                            <th>Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>96606</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>96605</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>96604</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>96603</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>96602</td>
+                            <td>1</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="text-danger" style="font-size: 13px;">Last 5 scanned items</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private void BackToStoreItemCheck()
+    {
+        NavigationManager.NavigateTo("/store-item-check");
+    }
+}

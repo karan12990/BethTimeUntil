@@ -11,7 +11,7 @@
             <p class="mb-4 fw-bold" style="font-size:20px;">204 Chatwood</p>
             <div class="d-flex align-items-center gap-3 mb-4">
                 <div class="flex-fill">
-                    <button class="btn btn-style">
+                    <button class="btn btn-style" @onclick='(() => NavigationManager.NavigateTo("/item-history"))'>
                         <img src="/_content/Root/icons/history.png" alt="" width="16px">
                         <span>History</span>
                     </button>
@@ -31,7 +31,7 @@
                 </div>
             </div>
             <div>
-                <button class="btn btn-yellow w-100" @onclick="HandleContinue">Continue</button>
+                <button class="btn btn-yellow w-100" @onclick="HandleContinue">continue</button>
             </div>
         </div>
     </div>
