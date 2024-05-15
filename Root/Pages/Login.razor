@@ -1,7 +1,7 @@
 ﻿@layout LoginLayout
 @page "/"
 @inject NavigationManager NavigationManager
-
+@using Root.Models
 
 <div class="login-main row h-100 container-fluid p-0 m-0">
     <div class="col-lg-7 bg-yellow d-none d-lg-block p-5 login-left-main">
@@ -20,23 +20,35 @@
                 <p class="login-title-1 mb-1">Welcome Back</p>
                 <p class="login-title-2">Enter your details to Login</p>
             </div>
-            <div class="login-form px-4 d-flex flex-column gap-4">
-                <div>
-                    <label for="userName" class="mb-2">Username</label>
-                    <input type="text" class="form-control form-control-lg" id="userName" placeholder="Enter your username">
+            <EditForm Model="@loginModel" OnValidSubmit="Submit">
+                <DataAnnotationsValidator />
+                <div class="login-form px-4 d-flex flex-column gap-4">
+                    <div>
+                        <label for="userName" class="mb-2">Username</label>
+                        <input type="text" @bind-value="loginModel.UserName" class="form-control form-control-lg" id="userName" placeholder="Enter your username">
+                        <ValidationMessage For="@(() => loginModel.UserName)" />
+                    </div>
+                    <div>
+                        <label for="password" class="mb-2">Password</label>
+                        <input type="password" @bind-value="loginModel.Password" class="form-control form-control-lg" id="password" placeholder="Enter your password">
+                        <ValidationMessage For="@(() => loginModel.Password)" />
+                    </div>
+                    <button type="submit" class="btn w-100 mb-4 py-3 login-btn">Login</button>
                 </div>
-                <div >
-                    <label for="password" class="mb-2">Password</label>
-                    <input type="password" class="form-control form-control-lg" id="password" placeholder="Enter your password">
-                </div>
-                <button type="submit" class="btn w-100 mb-4 py-3 login-btn" @onclick="HandleLogin">Login</button>
-            </div>
+            </EditForm>
         </div>
     </div>
 </div>
 
 @code {
     private void HandleLogin()
+    {
+        NavigationManager.NavigateTo("/home");
+    }
+
+    LoginModel loginModel = new();
+
+    private void Submit()
     {
         NavigationManager.NavigateTo("/home");
     }
