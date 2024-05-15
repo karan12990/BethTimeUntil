@@ -173,19 +173,37 @@ p {
 table {
     width: 100%;
     font-size: 13px;
-    table-layout: fixed;
-    border-radius: 10px !important;
 }
+
 
 thead {
     background-color: #ececec
 }
 
 th, td {
-    border: 1px solid #999;
     padding: 8px;
     word-break: break-word;
 }
+
+.rounded-table {
+    border: 1px solid #999;
+    border-radius: 5px;
+    overflow: hidden
+}
+
+    .rounded-table td, th {
+        border-bottom: 1px solid #999;
+        border-right: 1px solid #999;
+    }
+
+.rounded-table table td:last-child, th:last-child {
+    border-right: none;
+}
+
+.rounded-table tr:last-child td {
+    border-bottom: none;
+}
+
 
 @media screen and (max-width: 992px) {
     .modal-content {
