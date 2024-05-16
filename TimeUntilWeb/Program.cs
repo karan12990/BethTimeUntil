@@ -17,6 +17,7 @@ builder.Services.AddBlazoredLocalStorage();
 builder.Services.AddScoped<IFormFactor, FormFactor>();
 builder.Services.AddScoped<ILocalStorage, LocalStorage>();
 builder.Services.AddScoped<IPhotoManager, PhotoManager>();
+builder.Services.AddSingleton<IAppService, Root.Services.AppService>();
 
 var app = builder.Build();
 

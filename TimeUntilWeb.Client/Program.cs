@@ -13,5 +13,5 @@ builder.Services.AddBlazoredLocalStorageAsSingleton();
 builder.Services.AddSingleton<IFormFactor, FormFactor>();
 builder.Services.AddSingleton<ILocalStorage, LocalStorage>();
 builder.Services.AddSingleton<IPhotoManager, PhotoManager>();
-
+builder.Services.AddSingleton<IAppService, Root.Services.AppService>();
 await builder.Build().RunAsync();

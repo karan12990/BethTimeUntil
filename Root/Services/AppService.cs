@@ -1,11 +1,11 @@
-﻿using Newtonsoft.Json;
+﻿using System.Net;
+using Newtonsoft.Json;
 using Root.Interfaces;
 using Root.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
-using System.Threading.Tasks;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace Root.Services
 {
@@ -13,22 +13,106 @@ namespace Root.Services
     {
         public async Task<MainResponse> AuthenticateUser(LoginModel loginModel)
         {
+
             var returnResponse = new MainResponse();
-            using (var client = new HttpClient())
+
+            try
             {
-                var url = $"{Setting.BaseUrl}{APIs.AuthenticateUser}";
-
-                var serializedStr = JsonConvert.SerializeObject(loginModel);
-
-                var response = await client.PostAsync(url, new StringContent(serializedStr, Encoding.UTF8, "application/json"));
-
-                if (response.IsSuccessStatusCode)
+                var envelope = new GetStoreUserListRequest.Envelope
                 {
-                    string contentStr = await response.Content.ReadAsStringAsync();
-                    returnResponse = JsonConvert.DeserializeObject<MainResponse>(contentStr);
+                    Body = new GetStoreUserListRequest.Body
+                    {
+                        GetStoreUserList = new GetStoreUserListRequest.GetStoreUserList
+                        {
+                            userCode = loginModel.UserName,
+                            xmlFile = new GetStoreUserListRequest.XmlFile
+                            {
+                                StoreUser = new GetStoreUserListRequest.StoreUser
+                                {
+                                    UserID = "[string]",
+                                    StoreCode = "[string]",
+                                    StoreName = "[string]",
+                                    Default = false
+                                }
+                            }
+                        }
+                    }
+                };
+
+                // Serialize the Envelope object to XML
+                string xmlString;
+                XmlSerializer serializer = new XmlSerializer(typeof(GetStoreUserListRequest.Envelope));
+                using (StringWriter textWriter = new Utf8StringWriter())
+                {
+                    XmlWriterSettings settings = new XmlWriterSettings
+                    {
+                        OmitXmlDeclaration = true,
+                        Indent = true
+                    };
+                    using (XmlWriter xmlWriter = XmlWriter.Create(textWriter, settings))
+                    {
+                        serializer.Serialize(xmlWriter, envelope);
+                    }
+                    xmlString = textWriter.ToString();
+                }
+
+                // Make HTTP request
+                using (var client = new HttpClient())
+                {
+                    var request = new HttpRequestMessage(HttpMethod.Post, Setting.BaseUrl);
+                    request.Headers.Add("SOAPAction", "urn:microsoft-dynamics-schemas/codeunit/PDA:GetStoreUserList");
+
+                    // Encode username and password in Base64
+                    var base64String = Convert.ToBase64String(Encoding.ASCII.GetBytes($"{loginModel.UserName}:{loginModel.Password}"));
+
+                    // Add Basic Authentication header
+                    request.Headers.Authorization = new AuthenticationHeaderValue("Basic", base64String);
+
+                    // Set the content type
+                    request.Content = new StringContent(xmlString, null, "application/xml");
+
+                    // Send the request
+                    var response = await client.SendAsync(request);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        // Read and print the response
+                        string responseXml = await response.Content.ReadAsStringAsync();
+
+                        var serializerResponse = new XmlSerializer(typeof(GetStoreUserListResponse));
+
+                        using (TextReader reader = new StringReader(responseXml))
+                        {
+                            var getStoreUserListResponse = (GetStoreUserListResponse)serializerResponse.Deserialize(reader);
+                            returnResponse.Content = getStoreUserListResponse;
+                            returnResponse.IsSuccess = true;
+                        }
+
+                        Console.WriteLine(responseXml);
+
+                        return returnResponse;
+                    }
+
+                    if (response.StatusCode == HttpStatusCode.Unauthorized)
+                    {
+                        returnResponse.IsSuccess = false;
+                        returnResponse.ErrorMessage = "Please check username and password";
+                    }
+                    else
+                    {
+                        returnResponse.ErrorMessage = "Something is wrong!";
+                        returnResponse.IsSuccess = false;
+                    }
+                    return returnResponse;
                 }
             }
-            return returnResponse;
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                returnResponse.ErrorMessage = "Please connect to the VPN";
+                return returnResponse;
+            }
+
         }
 
         public async Task<List<StudentModel>> GetAllStudents()
@@ -125,6 +209,55 @@ namespace Root.Services
                 }
             }
             return (isSuccess, errorMessage);
+        }
+
+        public static string GetStoreUserListXml(string userCode)
+        {
+            var envelope = new GetStoreUserListRequest.Envelope
+            {
+                Body = new GetStoreUserListRequest.Body
+                {
+                    GetStoreUserList = new GetStoreUserListRequest.GetStoreUserList
+                    {
+                        userCode = userCode,
+                        xmlFile = new GetStoreUserListRequest.XmlFile
+                        {
+                            StoreUser = new GetStoreUserListRequest.StoreUser
+                            {
+                                UserID = "[string]",
+                                StoreCode = "[string]",
+                                StoreName = "[string]",
+                                Default = false
+                            }
+                        }
+                    }
+                }
+            };
+
+            // Serialize the Envelope object to XML
+            string xmlString;
+            XmlSerializer serializer = new XmlSerializer(typeof(GetStoreUserListRequest.Envelope));
+            using (StringWriter textWriter = new Utf8StringWriter())
+            {
+                XmlWriterSettings settings = new XmlWriterSettings
+                {
+                    OmitXmlDeclaration = true,
+                    Indent = true
+                };
+                using (XmlWriter xmlWriter = XmlWriter.Create(textWriter, settings))
+                {
+                    serializer.Serialize(xmlWriter, envelope);
+                }
+                xmlString = textWriter.ToString();
+            }
+
+            return xmlString;
+        }
+
+        // Custom StringWriter to specify UTF-8 encoding
+        public class Utf8StringWriter : StringWriter
+        {
+            public override Encoding Encoding => Encoding.UTF8;
         }
     }
 }
