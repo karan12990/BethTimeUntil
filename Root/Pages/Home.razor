@@ -1,6 +1,8 @@
 ﻿@page "/home"
+@using Root.Models
 @inject NavigationManager NavigationManager
-
+@inject IAppService AppService
+@inject ILocalStorage localStorage
 <div class="d-flex justify-content-center">
     <div class="store-card-main">
         <div class="mb-2 back-div d-flex align-items-center gap-3" @onclick="BackToLogin">
@@ -9,7 +11,14 @@
         <div class="px-4 py-4 store-card" >
             <p class="mb-4 fw-bold" style="font-size:20px;">Select store</p>
             <div class="d-flex flex-column gap-3">
-                <div class="d-flex justify-content-between align-items-center store-card-item p-3">
+                @foreach (var item in stores)
+                {
+                    <div class="d-flex justify-content-between align-items-center store-card-item p-3">
+                        <p>@item.StoreCode - @item.StoreName</p>
+                        <p @onclick="()=> HandleStore(item)"><img src="/_content/Root/icons/right_arrow.png" alt=""></p>
+                    </div>
+                }
+                @* <div class="d-flex justify-content-between align-items-center store-card-item p-3">
                     <p>202 - Alexandria McEvoy</p>
                     <p @onclick="HandleStore"><img src="/_content/Root/icons/right_arrow.png" alt=""></p>
                 </div>
@@ -28,20 +37,40 @@
                 <div class="d-flex justify-content-between align-items-center store-card-item p-3">
                     <p>637 - harmony new store</p>
                     <p><img src="/_content/Root/icons/right_arrow.png" alt=""></p>
-                </div>
+                </div> *@
             </div>
         </div>
     </div>
 </div>
 
 @code {
+    LoginModel loginModel = new();
+    List<StoreUser> stores = new();
+    string userName => localStorage.GetItem("UserName");
+    string password => localStorage.GetItem("Password");
+    string selectedStoreCode => localStorage.GetItem("SelectedStoreCode");
+    string selectedStoreName => localStorage.GetItem("SelectedStoreName");
+
+    protected override async Task OnInitializedAsync()
+    {
+        loginModel.UserName = userName;
+        loginModel.Password = password;
+
+        var response = await AppService.AuthenticateUser(loginModel);
+
+        stores = response.StoreUsers;
+    }
+  
+
     private void BackToLogin()
     {
         NavigationManager.NavigateTo("/");
     }
 
-    private void HandleStore()
+    private void HandleStore(StoreUser item)
     {
+        localStorage.SetItem("SelectedStoreCode", item.StoreCode);
+        localStorage.SetItem("SelectedStoreName", item.StoreName);
         NavigationManager.NavigateTo("/store-management");
     }
 }

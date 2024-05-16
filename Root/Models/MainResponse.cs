@@ -11,5 +11,7 @@ namespace Root.Models
         public bool IsSuccess { get; set; }
         public string ErrorMessage { get; set; }
         public object Content { get; set; }
+
+        public List<StoreUser> StoreUsers { get; set; }
     }
 }

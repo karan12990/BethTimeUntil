@@ -84,7 +84,7 @@ namespace Root.Services
                         using (TextReader reader = new StringReader(responseXml))
                         {
                             var getStoreUserListResponse = (GetStoreUserListResponse)serializerResponse.Deserialize(reader);
-                            returnResponse.Content = getStoreUserListResponse;
+                            returnResponse.StoreUsers = getStoreUserListResponse.Body.GetStoreUserListResult.XmlFile.StoreUsers.ToList();
                             returnResponse.IsSuccess = true;
                         }
 

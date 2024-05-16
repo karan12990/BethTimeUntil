@@ -1,7 +1,11 @@
 ﻿@layout LoginLayout
 @page "/"
 @inject NavigationManager NavigationManager
+@inject IAppService AppService
+@using Newtonsoft.Json
 @using Root.Models
+@inject IJSRuntime JSRuntime
+@inject ILocalStorage localStorage
 
 <div class="login-main row h-100 container-fluid p-0 m-0">
     <div class="col-lg-7 bg-yellow d-none d-lg-block p-5 login-left-main">
@@ -33,7 +37,10 @@
                         <input type="password" @bind-value="loginModel.Password" class="form-control form-control-lg" id="password" placeholder="Enter your password">
                         <ValidationMessage For="@(() => loginModel.Password)" />
                     </div>
-                    <button type="submit" class="btn w-100 mb-4 py-3 login-btn">Login</button>
+                    <button type="submit" class="btn w-100 mb-4 py-3 login-btn">
+                        <span class="@_spinnerClass" role="status" aria-hidden="true"></span>
+                        Login
+                    </button>
                 </div>
             </EditForm>
         </div>
@@ -46,10 +53,44 @@
         NavigationManager.NavigateTo("/home");
     }
 
-    LoginModel loginModel = new();
-
-    private void Submit()
+    private async Task ShowAlert(string message)
     {
-        NavigationManager.NavigateTo("/home");
+        await JSRuntime.InvokeVoidAsync("alert", message);
+    }
+
+    LoginModel loginModel = new();
+    private string _spinnerClass = "";
+
+    private async void Submit()
+    {
+        _spinnerClass = "spinner-border spinner-border-sm";
+        // await Task.Delay(500);
+
+        var response = await AppService.AuthenticateUser(loginModel);
+
+        if (response.IsSuccess)
+        {
+            localStorage.SetItem("UserName", loginModel.UserName);
+            localStorage.SetItem("Password", loginModel.Password);
+            if (response.StoreUsers.Count() == 1)
+            {
+                var selectedStore = response.StoreUsers.FirstOrDefault();
+                localStorage.SetItem("SelectedStoreCode", selectedStore.StoreCode);
+                localStorage.SetItem("SelectedStoreName", selectedStore.StoreName);
+                NavigationManager.NavigateTo("/store-management");
+                
+            }else
+            {
+                NavigationManager.NavigateTo("/home");
+            }
+        }
+        else
+        {
+            await ShowAlert(response.ErrorMessage);
+        }
+
+        _spinnerClass = "";
+        this.StateHasChanged();
+
     }
 }

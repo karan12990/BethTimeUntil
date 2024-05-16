@@ -1,5 +1,6 @@
 ﻿@page "/store-management"
 @inject NavigationManager NavigationManager
+@inject ILocalStorage localStorage
 
 <div class="d-flex justify-content-center">
     <div class="store-card-main">
@@ -7,7 +8,7 @@
             <img src="/_content/Root/icons/left_arrow.png" alt="" class="ms-1"><span>Go Back</span>
         </div>
         <div class="px-3 py-4 store-card">
-            <p class="mb-4 fw-bold" style="font-size:20px;">204 Chatwood</p>
+            <p class="mb-4 fw-bold" style="font-size:20px;">@selectedStoreCode @selectedStoreName</p>
             <div class="row">
                 <div class="col-6 store-menu-list">
                     <div class="store-menu">
@@ -109,8 +110,14 @@
 </div>
 
 @code {
+
+    string selectedStoreCode => localStorage.GetItem("SelectedStoreCode");
+    string selectedStoreName => localStorage.GetItem("SelectedStoreName");
+
     private void BackToHome()
     {
+        
+
         NavigationManager.NavigateTo("/home");
     }
 
