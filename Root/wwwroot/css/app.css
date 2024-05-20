@@ -1,6 +1,44 @@
 ﻿:root {
     --main-yellow-color: #FFC126;
 }
+/*html {*/
+    /*
+
+    html default size this 16px
+    now html size is 10px  (10/16 * 100) = 62.5%
+
+    */
+    /*font-size: 62.5%;
+}*/
+
+/*
+
+screen large then 768px unit
+
+1rem = 10px
+2rem = 20px
+3.2rem = 32px
+
+screen less then 768px unit
+
+1rem = 8px
+2rem = 16px
+3.2rem = 25.6
+
+*/
+
+html, body {
+    /*font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;*/
+    font-size: 62.5%;
+    font-family: "Gilmer-Light";
+}
+
+@media screen and (max-width: 380px) {
+    html {
+        font-size: 50%;
+    }
+}
+
 @import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
 @font-face {
@@ -8,10 +46,6 @@
     src: url('../css/open-iconic/font/fonts/gilmer-light.otf') format('truetype');
 }
 
-html, body {
-    /*font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;*/
-    font-family: "Gilmer-Light";
-}
 
 h1:focus {
     outline: none;
@@ -41,6 +75,7 @@ a, .btn-link {
 
 .validation-message {
     color: red;
+    font-size: 1.6rem;
 }
 
 #blazor-error-ui {
@@ -126,7 +161,7 @@ a, .btn-link {
         content: var(--blazor-load-percentage-text, "Loading");
     }
 
-/*--------COMMON-------*/
+/*--------COMMON GLOBAL-------*/
 
 .modal-header .btn-close {
     width: 15px;
@@ -204,6 +239,10 @@ th, td {
     border-bottom: none;
 }
 
+.form-control-lg{
+    padding: 0.8rem 1.6rem;
+}
+
 
 @media screen and (max-width: 992px) {
     .modal-content {
@@ -214,11 +253,11 @@ th, td {
 /*--------LOGIN PAGE-------*/
 
 input[type='text'], input[type='email'], input[type='password'] {
-    font-size: 16px;
+    font-size: 1.6rem;
 }
 
 input::placeholder {
-    font-size: 16px;
+    font-size: 1.6rem;
 }
 
 .login-main {
@@ -232,7 +271,7 @@ input::placeholder {
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 0 15px #ececec;
-    padding-bottom: 100px;
+    padding-bottom: 10rem;
     background-image: url(../images/login-footer-img.png);
     background-position: bottom right;
     background-repeat: no-repeat;
@@ -246,41 +285,44 @@ input::placeholder {
 
 .login-header {
     background-color: #FFC126;
-    padding: 4px 12px;
+    padding: 0.4rem 1.2rem;
 }
 
 .login-title {
     text-align: center;
-    padding: 24px 0;
+    padding: 2.4rem 0;
 }
 
     .login-title .login-title-1 {
         font-weight: 600;
-        font-size: 20px;
+        font-size: 2rem;
     }
 
     .login-title .login-title-2 {
+        font-size: 1.6rem;
     }
 
 .login-form label{
-    font-size: 15px;
+    font-size: 1.5rem;
 }
 
 .login-btn {
     background-color: var(--main-yellow-color);
     color: #000000;
     font-weight: 600;
+    font-size: 1.6rem;
+    padding: 1.6rem 1.2rem;
 }
 
 .login-left-head {
-    font-size: 60px;
-    margin-top: 100px;
+    font-size: 6rem;
+    margin-top: 10rem;
     font-weight: 600;
     /*font-family: 'Arial', sans-serif;*/
     color: #ffffff;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     /*-webkit-text-stroke: 3px #ffffff;*/
-    letter-spacing: 2px;
+    letter-spacing: 0.2rem;
     line-height: 1.1;
 }
 
@@ -291,13 +333,17 @@ input::placeholder {
     background-position: bottom left;
 }
 
+.login-form {
+    gap: 2.4rem;
+}
+
 @media screen and (min-width: 992px) {
     .login-main {
         background-color: var(--main-yellow-color);
     }
 
     .login-title {
-        padding: 34px 0;
+        padding: 3.4rem 0;
     }
 
     .login-header {
@@ -312,7 +358,7 @@ input::placeholder {
     .login-form-main {
         background: #ffffff;
         border-radius: 10px;
-        padding: 0 40px;
+        padding: 0 4rem;
     }
 
     .login-form-box {

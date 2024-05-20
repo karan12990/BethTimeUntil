@@ -23,9 +23,9 @@
                 <p class="login-title-1 mb-1">Welcome Back</p>
                 <p class="login-title-2">Enter your details to Login</p>
             </div>
-            <EditForm Model="@loginModel" OnValidSubmit="Submit">
+            <EditForm Model="@loginModel" OnValidSubmit="Submit" FormName="loginForm">
                 <DataAnnotationsValidator />
-                <div class="login-form px-4 d-flex flex-column gap-4">
+                <div class="login-form px-4 d-flex flex-column">
                     <div>
                         <label for="userName" class="mb-2">Username</label>
                         <input type="text" @bind-value="loginModel.UserName" class="form-control form-control-lg" id="userName" placeholder="Enter your username">
@@ -36,8 +36,8 @@
                         <input type="password" @bind-value="loginModel.Password" class="form-control form-control-lg" id="password" placeholder="Enter your password">
                         <ValidationMessage For="@(() => loginModel.Password)" />
                     </div>
-                    <button type="submit" class="btn w-100 mb-4 py-3 login-btn">
-                        <span class="@_spinnerClass" role="status" aria-hidden="true"></span>
+                    <button type="submit" class="btn w-100 mb-4 login-btn">
+                        <span class="@_spinnerClass" role="status" aria-hidden="true" style="width: 1.5rem; height: 1.5rem;"></span>
                         Login
                     </button>
                 </div>
