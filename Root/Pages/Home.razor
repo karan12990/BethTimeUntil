@@ -59,6 +59,8 @@
         var response = await AppService.AuthenticateUser(loginModel);
 
         stores = response.StoreUsers;
+
+        StateHasChanged();
     }
   
 
