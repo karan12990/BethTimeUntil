@@ -54,7 +54,7 @@
 
     private async Task ShowAlert(string message)
     {
-        await JSRuntime.InvokeVoidAsync("alert", message);
+         await JSRuntime.InvokeVoidAsync("alert", message);
     }
 
     LoginModel loginModel = new();

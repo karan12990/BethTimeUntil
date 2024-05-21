@@ -26,9 +26,7 @@ public static class MauiProgram
 		builder.Logging.AddDebug();
 #endif
 		// Add device specific services used by RCL (Root)
-		builder.Services.AddSingleton<IFormFactor, FormFactor>();
         builder.Services.AddSingleton<ILocalStorage, LocalStorage>();
-        builder.Services.AddSingleton<IPhotoManager, PhotoManager>();
         builder.Services.AddSingleton<IAppService, Root.Services.AppService>();
 
         return builder.Build();
