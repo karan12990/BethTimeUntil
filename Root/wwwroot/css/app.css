@@ -372,7 +372,7 @@ input::placeholder {
 
 .main-header {
     background-color: #FFC126;
-    padding: 1rem 1.5rem;
+    padding: 0.5rem 1.5rem;
     position: fixed;
     top: 0;
     width: 100%;
@@ -383,8 +383,8 @@ input::placeholder {
     background-repeat: no-repeat, no-repeat;
     background-size: 15% 50%, 10% 50%;
     background-position: bottom left, top right;
-    margin-top: 9rem;
-    height: calc(100vh - 18.4rem);
+    margin-top: 8rem;
+    height: calc(100vh - 15rem);
     overflow-y: auto;
 }
 
@@ -446,8 +446,8 @@ input::placeholder {
 
     .main-bg {
         background: none;
-       /* margin-top: 12rem;
-        height: calc(100vh - 19.7rem);*/
+        margin-top: 8rem;
+        height: calc(100vh - 15.7rem);
     }
 }
 
