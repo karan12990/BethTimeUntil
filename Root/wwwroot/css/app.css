@@ -446,8 +446,8 @@ input::placeholder {
 
     .main-bg {
         background: none;
-        margin-top: 12rem;
-        height: calc(100vh - 19.7rem);
+       /* margin-top: 12rem;
+        height: calc(100vh - 19.7rem);*/
     }
 }
 
