@@ -372,7 +372,7 @@ input::placeholder {
 
 .main-header {
     background-color: #FFC126;
-    padding: 20px 15px;
+    padding: 1rem 1.5rem;
     position: fixed;
     top: 0;
     width: 100%;
@@ -383,8 +383,8 @@ input::placeholder {
     background-repeat: no-repeat, no-repeat;
     background-size: 15% 50%, 10% 50%;
     background-position: bottom left, top right;
-    margin-top: 110px;
-    height: calc(100vh - 204px);
+    margin-top: 11rem;
+    height: calc(100vh - 20.4rem);
     overflow-y: auto;
 }
 
@@ -396,52 +396,54 @@ input::placeholder {
 }
 
 .store-card-main{
-    padding: 25px 0;
+    padding: 2.5rem 0;
 }
 
 .store-card-main .store-card {
-    min-width: 524px;
-    max-width: 524px;
+    min-width: 52.4rem;
+    max-width: 52.4rem;
     box-shadow: 0 0 10px #ececec;
     border-radius: 10px;
 }
 
-    .store-card-main .store-card .store-card-item {
-        border: 1px solid #e0e0e0;
-        border-radius: 8px;
-        font-size:18px;
-    }
+.store-card-title {
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+.store-card-main .store-card .store-card-item {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1.8rem;
+}
 
     .store-card-main .back-div {
         color: #007FC3;
         font-weight: 600;
-        font-size: 18px;
+        font-size: 1.8rem;
         cursor: pointer;
     }
 
 .store-card-item img{
     cursor: pointer;
+    width: 2rem;
 }
 
 @media screen and (max-width: 992px) {
-    .main-header {
-        padding: 35px 20px 15px;
-    }
 
     .main-footer {
         /*padding: 10px 0;*/
     }
 
     .store-card-main .store-card {
-        min-width: 350px;
-        max-width: 350px;
-        /*max-height: 68vh;*/
+        min-width: 35rem;
+        max-width: 35rem;
     }
 
     .main-bg {
         background: none;
-        margin-top: 120px;
-        height: calc(100vh - 197px);
+        margin-top: 12rem;
+        height: calc(100vh - 19.7rem);
     }
 }
 
