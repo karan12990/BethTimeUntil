@@ -383,8 +383,8 @@ input::placeholder {
     background-repeat: no-repeat, no-repeat;
     background-size: 15% 50%, 10% 50%;
     background-position: bottom left, top right;
-    margin-top: 11rem;
-    height: calc(100vh - 20.4rem);
+    margin-top: 9rem;
+    height: calc(100vh - 18.4rem);
     overflow-y: auto;
 }
 
