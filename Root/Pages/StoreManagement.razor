@@ -4,7 +4,7 @@
 
 <div class="d-flex justify-content-center">
     <div class="store-card-main">
-        <div class="mb-3 back-div d-flex align-items-center gap-3" @onclick="BackToHome">
+        <div class="mb-3 back-div d-inline-flex align-items-center gap-3" @onclick="BackToHome">
             <img src="/_content/Root/icons/left_arrow.png" alt="" class="ms-1"><span>Go Back</span>
         </div>
         <div class="px-3 py-4 store-card">
@@ -15,6 +15,7 @@
                         <div class="store-menu-img">
                             <img src="/_content/Root/icons/store-menu-IC.png" alt="store-menu" />
                         </div>
+                        @* <div @onclick="HandleItemCheck" class="d-flex align-items-center justify-content-between gap-2 cursor-pointer menu-arrow"> *@
                         <div class="d-flex align-items-center justify-content-between gap-2 cursor-pointer menu-arrow">
                             <p>Item check</p>
                             <img src="/_content/Root/icons/right_arrow.png" alt="" class="ms-1">

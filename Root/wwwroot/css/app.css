@@ -191,24 +191,29 @@ p {
     background-color: var(--main-yellow-color);
     color: #000000;
     font-weight: 600;
-    padding-top: 12px;
-    padding-bottom: 12px;
+    padding-top: 1.2rem;
+    padding-bottom: 1.2rem;
+    font-size: 1.6rem;
 }
 
 .btn-style {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 1rem;
     width: 100%;
     background-color: #f8f9fa;
-    font-size: 18px;
+    font-size: 1.8rem;
 }
 
-table {
-    width: 100%;
-    font-size: 13px;
-}
+    .btn-style img {
+        width: 1.6rem;
+    }
+
+    table {
+        width: 100%;
+        font-size: 1.3rem;
+    }
 
 
 thead {
@@ -216,7 +221,7 @@ thead {
 }
 
 th, td {
-    padding: 8px;
+    padding: 0.8rem;
     word-break: break-word;
 }
 
@@ -415,6 +420,7 @@ input::placeholder {
     border: 1px solid #e0e0e0;
     border-radius: 8px;
     font-size: 1.8rem;
+    cursor: pointer;
 }
 
     .store-card-main .back-div {
@@ -425,7 +431,8 @@ input::placeholder {
     }
 
 .back-div img{
-    width: 1.5rem
+    width: 1.5rem;
+    /*margin-right: 0.5rem;*/
 }
 
 .store-card-item img {
@@ -494,17 +501,37 @@ input::placeholder {
     height: 80%;
 }
 
+.item-search-form label {
+    font-size: 1.6rem;
+}
+
 @media screen and (max-width: 992px) {
     .store-history-card {
         height: 90%;
     }
 }
 
-/*--------STORE ITEM DESCRIPTION PAGE-------*/
+/*--------EDIT FORM PAGE-------*/
 
+.menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    background-color: #f8f9fa;
+    font-size: 1.8rem;
+}
+
+    .menu-btn img {
+        width: 1.6rem;
+    }
+
+.item-edit-form label{
+    font-size: 1.5rem;
+}
 /*--------CUSTOM SCROLLBAR-------*/
 @media screen and (min-width: 992px) {
-    ::-webkit-scrollbar {
+    :: -webkit-scrollbar {
         width: 4px;
     }
 
@@ -535,14 +562,14 @@ input::placeholder {
 input {
     border: 1px solid #e0e0e0;
     border-radius: 5px;
-    padding: 8px;
-    font-size: 16px;
+    padding: 0.8rem;
+    font-size: 1.6rem;
     width: 100%
 }
 
 .search-icon {
     position: absolute;
-    right: 15px;
+    right: 1.5rem;
     top: 30%;
 }
 
@@ -559,10 +586,11 @@ input {
 }
 
     .autocomplete-items div {
-        padding: 10px;
+        padding: 1rem;
         cursor: pointer;
         background-color: #fff;
         border-bottom: 1px solid #d4d4d4;
+        font-size: 1.4rem;
     }
 
         /*when hovering an item:*/
@@ -581,7 +609,7 @@ input {
     align-items: center;
     text-align: center;
     color: #777;
-    font-size: 14px;
+    font-size: 1.4rem;
 }
 
     .divider::before,

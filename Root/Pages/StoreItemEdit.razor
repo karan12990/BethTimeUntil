@@ -3,50 +3,62 @@
 
 <div class="d-flex justify-content-center">
     <div class="store-card-main">
-        <div class="mb-2 back-div d-flex align-items-center gap-3" @onclick="BackToStoreItemCheck">
+        <div class="mb-2 back-div d-inline-flex align-items-center gap-3" @onclick="BackToStoreItemCheck">
             <img src="/_content/Root/icons/left_arrow.png" alt="" class="ms-1"><span>Go Back</span>
         </div>
         <div class="px-3 py-4 store-card">
-            <p class="mb-4 fw-bold" style="font-size:20px;">204 Chatwood</p>
+            <p class="mb-4 store-card-title">204 Chatwood</p>
             <div class="mb-4">
-                <button class="btn btn-light d-flex align-items-center gap-2" @onclick='(() => NavigationManager.NavigateTo("/store-management"))'>
+                <button class="btn btn-light d-flex align-items-center gap-2 menu-btn" @onclick='(() => NavigationManager.NavigateTo("/store-management"))'>
                     <img src="/_content/Root/icons/menu.png" alt="menu">
                     <span>Menu</span>
                 </button>
             </div>
-            <form class ="">
+            <form class ="item-edit-form">
                 <div class="row mb-2">
-                    <div class="col-4 my-auto lh-sm">Inv Adj</div>
+                    <div class="col-4 my-auto lh-sm">
+                        <label>Inv Adj</label>
+                    </div>
                     <div class="col-8">
                         <input type="text" class="form-control" />
                     </div>
                 </div>
                 <div class="row mb-2">
-                    <div class="col-4 my-auto lh-sm">UOM</div>
+                    <div class="col-4 my-auto lh-sm">
+                        <label>UOM</label>
+                    </div>
                     <div class="col-8">
                         <input type="text" class="form-control" data-bs-toggle="modal" data-bs-target="#UOMModal" />
                     </div>
                 </div>
                 <div class="row mb-2">
-                    <div class="col-4 my-auto lh-sm">Reason Code</div>
+                    <div class="col-4 my-auto lh-sm">
+                        <label>Reason Code</label>
+                    </div>
                     <div class="col-8">
                         <input type="text" class="form-control" />
                     </div>
                 </div>
                 <div class="row mb-2">
-                    <div class="col-4 my-auto lh-sm">Claim Po</div>
+                    <div class="col-4 my-auto lh-sm">
+                        <label>Claim Po</label>
+                    </div>
                     <div class="col-8">
                         <input type="text" class="form-control" />
                     </div>
                 </div>
                 <div class="row mb-2">
-                    <div class="col-4 my-auto lh-sm">Item quantity</div>
+                    <div class="col-4 my-auto lh-sm">
+                        <label>Item quantity</label>
+                    </div>
                     <div class="col-8">
                         <input type="text" class="form-control" />
                     </div>
                 </div>
                 <div class="row mb-2">
-                    <div class="col-4 my-auto lh-sm">Facings</div>
+                    <div class="col-4 my-auto lh-sm">
+                        <label>Facings</label>
+                    </div>
                     <div class="col-8">
                         <input type="text" class="form-control" />
                     </div>
@@ -61,13 +73,17 @@
                     <span>OR</span>
                 </div>
                 <div class="row mb-2">
-                    <div class="col-4 my-auto lh-sm">Available SOH</div>
+                    <div class="col-4 my-auto lh-sm">
+                        <label>Available SOH</label>
+                    </div>
                     <div class="col-8">
                         <input type="text" class="form-control" />
                     </div>
                 </div>
                 <div class="row mb-2">
-                    <div class="col-4 my-auto lh-sm">Item quantity</div>
+                    <div class="col-4 my-auto lh-sm">
+                        <label>Item quantity</label>
+                    </div>
                     <div class="col-8">
                         <input type="text" class="form-control" />
                     </div>

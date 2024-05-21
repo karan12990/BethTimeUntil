@@ -3,32 +3,32 @@
 
 <div class="d-flex justify-content-center">
     <div class="store-card-main">
-        <div class="mb-2 back-div d-flex align-items-center gap-3" @onclick="BackToStoreManagement">
+        <div class="mb-2 back-div d-inline-flex align-items-center gap-3" @onclick="BackToStoreManagement">
             <img src="/_content/Root/icons/left_arrow.png" alt="" class="ms-1"><span>Menu</span>
         </div>
         <div class="px-3 py-4 store-card">
-            <p class="mb-4 fw-bold" style="font-size:20px;">204 Chatwood</p>
+            <p class="mb-4 store-card-title">204 Chatwood</p>
             <div class="d-flex align-items-center gap-lg-3 gap-2 mb-4">
                 <div class="flex-fill">
                     <button class="btn btn-style" @onclick='(() => NavigationManager.NavigateTo("/item-history"))'>
-                        <img src="/_content/Root/icons/history.png" alt="" width="16px">
+                        <img src="/_content/Root/icons/history.png" alt="">
                         <span>History</span>
                     </button>
                 </div>
                 <div class="flex-fill">
                     <button class="btn btn-style" @onclick='(() => NavigationManager.NavigateTo("/item-edit"))'>
-                        <img src="/_content/Root/icons/edit.png" alt="" width="16px">
+                        <img src="/_content/Root/icons/edit.png" alt="">
                         <span>Edit</span>
                     </button>
                 </div>
                 <div class="flex-fill">
                     <button class="btn btn-style">
-                        <img src="/_content/Root/icons/scan.png" alt="" width="16px">
+                        <img src="/_content/Root/icons/scan.png" alt="">
                         <span>Scan</span>
                     </button>
                 </div>
             </div>
-            <div class="d-flex align-items-center gap-3 mb-4">
+            <div class="d-flex align-items-center gap-3 mb-4 item-search-form">
                 <label for="myInput">Item</label>
                 <div class="autocomplete">
                     <input id="myInput" type="text" name="myCountry">
