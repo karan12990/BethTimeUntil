@@ -9,9 +9,6 @@ namespace Root.Interfaces
 {
     public interface IAppService
     {
-        Task<bool> RefreshToken();
         public Task<MainResponse> AuthenticateUser(LoginModel loginModel);
-        Task<(bool IsSuccess, string ErrorMessage)> RegisterUser(RegistrationModel registerUser);
-        Task<List<StudentModel>> GetAllStudents();
     }
 }
