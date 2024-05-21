@@ -4,18 +4,18 @@
 
 <div class="d-flex justify-content-center">
     <div class="store-card-main">
-        <div class="mb-2 back-div d-flex align-items-center gap-3" @onclick="BackToHome">
+        <div class="mb-3 back-div d-flex align-items-center gap-3" @onclick="BackToHome">
             <img src="/_content/Root/icons/left_arrow.png" alt="" class="ms-1"><span>Go Back</span>
         </div>
         <div class="px-3 py-4 store-card">
-            <p class="mb-4 fw-bold" style="font-size:20px;">@selectedStoreCode @selectedStoreName</p>
+            <p class="mb-4 store-card-title">@selectedStoreCode @selectedStoreName</p>
             <div class="row">
                 <div class="col-6 store-menu-list">
                     <div class="store-menu">
-                        <div>
+                        <div class="store-menu-img">
                             <img src="/_content/Root/icons/store-menu-IC.png" alt="store-menu" />
                         </div>
-                        <div class="d-flex align-items-center justify-content-between gap-2 cursor-pointer" @onclick="HandleItemCheck">
+                        <div class="d-flex align-items-center justify-content-between gap-2 cursor-pointer menu-arrow">
                             <p>Item check</p>
                             <img src="/_content/Root/icons/right_arrow.png" alt="" class="ms-1">
                         </div>
@@ -23,10 +23,10 @@
                 </div>
                 <div class="col-6 store-menu-list">
                     <div class="store-menu">
-                        <div>
+                        <div class="store-menu-img">
                             <img src="/_content/Root/icons/store-menu-ST.png" alt="store-menu" />
                         </div>
-                        <div class="d-flex align-items-center justify-content-between gap-2">
+                        <div class="d-flex align-items-center justify-content-between gap-2 menu-arrow">
                             <p>Stock Take</p>
                             <img src="/_content/Root/icons/right_arrow.png" alt="" class="ms-1">
                         </div>
@@ -36,10 +36,10 @@
             <div class="row">
                 <div class="col-6 store-menu-list">
                     <div class="store-menu">
-                        <div>
+                        <div class="store-menu-img">
                             <img src="/_content/Root/icons/store-menu-Transfer.png" alt="store-menu" />
                         </div>
-                        <div class="d-flex align-items-center justify-content-between gap-2">
+                        <div class="d-flex align-items-center justify-content-between gap-2 menu-arrow">
                             <p>Transfers</p>
                             <img src="/_content/Root/icons/right_arrow.png" alt="" class="ms-1">
                         </div>
@@ -47,10 +47,10 @@
                 </div>
                 <div class="col-6 store-menu-list">
                     <div class="store-menu">
-                        <div>
+                        <div class="store-menu-img">
                             <img src="/_content/Root/icons/store-menu-DR.png" alt="store-menu" />
                         </div>
-                        <div class="d-flex align-items-center justify-content-between gap-2">
+                        <div class="d-flex align-items-center justify-content-between gap-2 menu-arrow">
                             <p>Daily Routines</p>
                             <img src="/_content/Root/icons/right_arrow.png" alt="" class="ms-1">
                         </div>
@@ -60,10 +60,10 @@
             <div class="row">
                 <div class="col-6 store-menu-list">
                     <div class="store-menu">
-                        <div>
+                        <div class="store-menu-img">
                             <img src="/_content/Root/icons/store-menu-Promos.png" alt="store-menu" />
                         </div>
-                        <div class="d-flex align-items-center justify-content-between gap-2">
+                        <div class="d-flex align-items-center justify-content-between gap-2 menu-arrow">
                             <p>Promos</p>
                             <img src="/_content/Root/icons/right_arrow.png" alt="" class="ms-1">
                         </div>
@@ -71,10 +71,10 @@
                 </div>
                 <div class="col-6 store-menu-list">
                     <div class="store-menu">
-                        <div>
+                        <div class="store-menu-img">
                             <img src="/_content/Root/icons/store-menu-Receive.png" alt="store-menu" />
                         </div>
-                        <div class="d-flex align-items-center justify-content-between gap-2">
+                        <div class="d-flex align-items-center justify-content-between gap-2 menu-arrow">
                             <p>Receive</p>
                             <img src="/_content/Root/icons/right_arrow.png" alt="" class="ms-1">
                         </div>
@@ -84,10 +84,10 @@
             <div class="row">
                 <div class="col-6 store-menu-list">
                     <div class="store-menu">
-                        <div>
+                        <div class="store-menu-img">
                             <img src="/_content/Root/icons/store-menu-PO.png" alt="store-menu" />
                         </div>
-                        <div class="d-flex align-items-center justify-content-between gap-2">
+                        <div class="d-flex align-items-center justify-content-between gap-2 menu-arrow">
                             <p>Purchase Order</p>
                             <img src="/_content/Root/icons/right_arrow.png" alt="" class="ms-1">
                         </div>
@@ -95,10 +95,10 @@
                 </div>
                 <div class="col-6 store-menu-list">
                     <div class="store-menu">
-                        <div>
+                        <div class="store-menu-img">
                             <img src="/_content/Root/icons/store-menu-AMD.png" alt="store-menu" />
                         </div>
-                        <div class="d-flex align-items-center justify-content-between gap-2">
+                        <div class="d-flex align-items-center justify-content-between gap-2 menu-arrow">
                             <p>Automated Markes Down</p>
                             <img src="/_content/Root/icons/right_arrow.png" alt="" class="ms-1">
                         </div>

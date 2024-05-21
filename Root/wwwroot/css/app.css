@@ -424,7 +424,11 @@ input::placeholder {
         cursor: pointer;
     }
 
-.store-card-item img{
+.back-div img{
+    width: 1.5rem
+}
+
+.store-card-item img {
     cursor: pointer;
     width: 2rem;
 }
@@ -450,30 +454,38 @@ input::placeholder {
 /*--------STORE MANAGEMENT PAGE-------*/
 
 .store-menu-list {
-    margin-bottom: 10px;
-    padding-left: 6px;
-    padding-right: 6px;
+    margin-bottom: 1rem;
+    padding-left: 0.6rem;
+    padding-right: 0.6rem;
 }
 
 .store-menu {
     /*box-shadow: #00000017 0px 2px 1px, #00000017 0px 4px 2px, #00000017 0px 8px 4px;*/
     box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
-    height: 170px;
+    height: 17rem;
     overflow: hidden;
-    padding: 16px 24px;
+    padding: 1.6rem 2.4rem;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
 }
 
     .store-menu p {
-        font-size: 20px;
+        font-size: 2rem;
         word-break: break-word;
     }
 
+.store-menu-img img{
+    width: 4rem;
+}
+
+.menu-arrow img{
+    width: 2rem;
+}
+
 @media screen and (max-width: 992px) {
     .store-menu p {
-        font-size: 19px;
+        font-size: 1.9rem;
     }
 }
 
